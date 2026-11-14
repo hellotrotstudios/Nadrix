@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blogs &amp; Events — Nadrix Solutions</title>
+  <meta name="description" content="Practical notes on lubrication systems, and where to meet the Nadrix team next.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header site-header--rule">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html" aria-label="Nadrix home">
+        <img src="assets/images/logo-nadrix.png" alt="Nadrix" width="150" height="42">
+      </a>
+      <a class="btn btn--expert site-header__cta" href="contact.html">Talk to an expert</a>
+      <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="about.html">About us</a>
+        <a class="site-nav__link" href="systems.html">Our systems</a>
+        <a class="site-nav__link" href="industries.html">Industries</a>
+        <a class="site-nav__link" href="blogs-events.html" aria-current="page">Blogs &amp; events</a>
+        <a class="btn btn--expert" href="contact.html">Talk to an expert</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Intro -->
+    <div class="container page-intro">
+      <h1 class="heading heading--48 heading--navy">Blogs &amp; events</h1>
+      <p class="page-intro__lead">Practical notes on lubrication systems, and where to meet the Nadrix team next.</p>
+    </div>
+
+    <!-- Next event: js/main.js hides this after the date in data-hide-after -->
+    <div class="container">
+      <section class="next-event" aria-labelledby="next-event-title" data-hide-after="2026-11-28">
+        <div class="next-event__body">
+          <p class="next-event__label">Next event</p>
+          <h2 class="heading heading--48 next-event__title" id="next-event-title">Inno Rail 2026</h2>
+          <p class="next-event__lead">Lubrication engineered for railways.</p>
+          <dl class="next-event__details">
+            <div><dt>Date</dt><dd>26–28 Nov 2026</dd></div>
+            <div><dt>Stall</dt><dd>201</dd></div>
+            <div><dt>Venue</dt><dd>RDSO Stadium Ground, Lucknow, India</dd></div>
+          </dl>
+          <a class="btn btn--primary" href="mailto:sales@nadrixsolutions.com?subject=Meeting%20at%20Inno%20Rail%202026">Plan a meeting</a>
+        </div>
+        <div class="next-event__media">
+          <img src="assets/images/event-innorail.jpg" alt="Orange and white Vande Bharat express train on a railway line">
+        </div>
+      </section>
+    </div>
+
+    <!-- Blogs -->
+    <section class="posts" id="blogs" aria-labelledby="blogs-title">
+      <div class="container">
+        <div class="posts__header">
+          <h2 class="heading heading--36" id="blogs-title">Blogs</h2>
+          <div class="post-filter" role="group" aria-label="Filter blogs by topic">
+            <button class="post-filter__btn" type="button" aria-pressed="true" data-topic="all">All</button>
+            <button class="post-filter__btn" type="button" aria-pressed="false" data-topic="systems">Systems</button>
+            <button class="post-filter__btn" type="button" aria-pressed="false" data-topic="industries">Industries</button>
+            <button class="post-filter__btn" type="button" aria-pressed="false" data-topic="service">Service</button>
+          </div>
+        </div>
+
+        <!-- Article pages don't exist yet: give each title link an href when they do -->
+        <div class="post-grid">
+
+          <article class="post-card post-card--featured" data-topic="systems">
+            <div class="post-card__media">
+              <img src="assets/images/blog-choosing-system.jpg" alt="Engineer reviewing a lubrication system layout on screen">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Systems</p>
+              <h3 class="post-card__title"><a>Choosing a lubrication system: single-line, progressive or <span class="post-card__nowrap">oil-air</span></a></h3>
+              <p class="post-card__desc">The right system depends on your lubrication points, operating conditions and maintenance requirements. Here’s how to compare the main options.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+          <article class="post-card" data-topic="industries">
+            <div class="post-card__media">
+              <img src="assets/images/industry-wind-railways.jpg" alt="Wind turbines above open farmland" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Industries</p>
+              <h3 class="post-card__title"><a>Wind turbines and railways: keeping friction and wear under control</a></h3>
+              <p class="post-card__desc">How the right lubrication reduces friction, minimises wear and supports reliable operation on wind and rail equipment.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+          <article class="post-card" data-topic="systems">
+            <div class="post-card__media">
+              <img src="assets/images/system-oil-circulating.webp" alt="Oil circulating lubrication system" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Systems</p>
+              <h3 class="post-card__title"><a>What an oil circulating system does for bearings and gears</a></h3>
+              <p class="post-card__desc">Continuously circulating, filtering and cooling oil protects components, removes heat and supports demanding operation.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+          <article class="post-card" data-topic="service">
+            <div class="post-card__media">
+              <img src="assets/images/blog-maintenance.jpg" alt="Technician measuring lubrication components" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Service</p>
+              <h3 class="post-card__title"><a>Annual maintenance contract or individual service visits?</a></h3>
+              <p class="post-card__desc">Two ways to care for a lubrication system throughout operation, and when replacing an existing system makes more sense.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+          <article class="post-card" data-topic="industries">
+            <div class="post-card__media">
+              <img src="assets/images/industry-steel.jpg" alt="Steel plant machinery" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Industries</p>
+              <h3 class="post-card__title"><a>Where dual-line and progressive systems combine in steel plants</a></h3>
+              <p class="post-card__desc">A look at combined distribution configurations for rolling mills and steel plant machinery.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+          <article class="post-card" data-topic="service">
+            <div class="post-card__media">
+              <img src="assets/images/blog-commissioning.jpg" alt="Technician installing a lubrication pump" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Service</p>
+              <h3 class="post-card__title"><a>What commissioning and operator training should cover</a></h3>
+              <p class="post-card__desc">From post-commissioning test runs to the everyday checks your operators and maintenance personnel need to know.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+          <article class="post-card" data-topic="industries">
+            <div class="post-card__media">
+              <img src="assets/images/industry-paper.jpg" alt="Paper mill machinery" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-card__topic">Industries</p>
+              <h3 class="post-card__title"><a>Oil and grease lubrication for paper machines</a></h3>
+              <p class="post-card__desc">Tailoring lubrication systems to paper-machine components and continuous production requirements.</p>
+              <span class="post-card__more">Read article <img src="assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Past events: js/main.js reveals a row after the date in data-show-after -->
+    <section class="past-events" id="events" aria-labelledby="past-events-title">
+      <div class="container">
+        <h2 class="heading heading--36" id="past-events-title">Past events</h2>
+        <ul class="event-list">
+          <li class="event-row" data-show-after="2026-11-28" hidden>
+            <span class="event-row__date">26–28 Nov 2026</span>
+            <div class="event-row__name">
+              <h3>Inno Rail 2026</h3>
+              <p>Lubrication engineered for railways.</p>
+            </div>
+            <span class="event-row__venue">RDSO Stadium Ground, Lucknow, India</span>
+            <span class="event-row__stall">Stall 201</span>
+          </li>
+          <li class="event-row">
+            <span class="event-row__date">7–9 Oct 2026</span>
+            <div class="event-row__name">
+              <h3>Windergy India 2026</h3>
+              <p>Lubrication engineered for wind power.</p>
+            </div>
+            <span class="event-row__venue">Chennai Trade Centre, Chennai, India</span>
+            <span class="event-row__stall">Stall H2-A108</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta__bg" aria-hidden="true">
+        <img src="assets/images/cta-bg.png" alt="" loading="lazy">
+      </div>
+      <div class="container cta__inner">
+        <h2 class="cta__title">Keep Your<br>Industry in Motion.</h2>
+        <p class="cta__lead">Whether you’re designing new equipment, upgrading an installation or replacing a system, bring your requirements to Nadrix.</p>
+        <a class="btn btn--outline btn--cta" href="#" download>
+          Download Company profile
+          <span class="btn__arrow-diag"><img src="assets/icons/arrow-right-up.svg" alt="" width="20" height="20"></span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="site-footer__inner">
+      <img class="site-footer__wordmark" src="assets/icons/footer-wordmark.svg" alt="" aria-hidden="true">
+      <div class="site-footer__content">
+        <div class="site-footer__cols">
+          <div class="footer-col">
+            <h4 class="footer-col__title">Explore Nadrix</h4>
+            <a class="footer-col__link" href="about.html">About Nadrix</a>
+            <a class="footer-col__link" href="systems.html">Lubrication systems</a>
+            <a class="footer-col__link" href="industries.html">Industries</a>
+            <a class="footer-col__link" href="index.html#expertise">Custom Solutions</a>
+            <a class="footer-col__link" href="blogs-events.html">Blogs &amp; events</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">Industries We Serve</h4>
+            <a class="footer-col__link" href="industries.html#cement">Cement industry</a>
+            <a class="footer-col__link" href="industries.html#automotive">Automotive Industry</a>
+            <a class="footer-col__link" href="industries.html#steel">Steel mills</a>
+            <a class="footer-col__link" href="industries.html#paper">Paper machines</a>
+            <a class="footer-col__link" href="industries.html#mining">Mining Industry</a>
+            <a class="footer-col__link" href="industries.html#wind">Wind – Power &amp; Railways</a>
+            <a class="footer-col__link" href="industries.html#hydraulic-presses">Hydraulic presses</a>
+          </div>
+          <div class="footer-col footer-col--contact">
+            <div class="footer-col__group">
+              <h4 class="footer-col__title">Discuss requirement</h4>
+              <a class="footer-col__link" href="tel:+919021116464">Phone: +91 90211 16464</a>
+              <a class="footer-col__mail" href="mailto:sales@nadrixsolutions.com">sales@nadrixsolutions.com</a>
+            </div>
+            <div class="footer-col__group">
+              <h4 class="footer-col__title">Speak to Technical Team</h4>
+              <a class="footer-col__link" href="tel:+919021114343">Phone: +91 90211 14343</a>
+              <a class="footer-col__mail footer-col__mail--sm" href="mailto:pandurang.patole@nadrixsolutions.com">pandurang.patole@nadrixsolutions.com</a>
+            </div>
+          </div>
+          <div class="footer-col footer-col--address">
+            <h4 class="footer-col__title">Our Address</h4>
+            <address class="footer-col__address">
+              <strong>Pune office address:</strong><br>
+              Unit No. 2 &amp; 3, Survey no.<br>
+              127/1A/A, Telco Road, Mohan<br>
+              Nagar, Chinchwad, Tehsil -<br>
+              Haveli, District - Pune,<br>
+              Maharashtra, India<br>
+              <br><br>
+              <strong>Mumbai office address:</strong><br>
+              Unit 1022, 10TH Floor, B Wing,<br>
+              Panchashil Plaza, NS Patkar Marg,<br>
+              NR Dharam Palace, Gamdevi,<br>
+              Grant Road,<br>
+              Mumbai, Maharashtra 400007.
+            </address>
+          </div>
+        </div>
+        <img class="site-footer__logo" src="assets/images/logo-nadrix.png" alt="Nadrix" width="171" height="48">
+        <div class="site-footer__bottom">
+          <img class="site-footer__line" src="assets/icons/footer-line.svg" alt="" aria-hidden="true">
+          <p class="site-footer__copy">© 2026 Nadrix Solutions Pvt. Ltd. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
