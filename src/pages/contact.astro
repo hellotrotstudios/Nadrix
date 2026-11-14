@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Contact us — Nadrix Solutions" description="Talk to the Nadrix sales or technical team about lubrication systems for your machinery. Phone, email, office addresses and an enquiry form." current="contact" headerRule>
+
+  <!-- Contact hero (Figma 511:2628 desktop · 512:3368 mobile)
+       One DOM for every width: grid areas move the photo behind the title on mobile
+       and behind the form on desktop. -->
+  <section class="contact-hero" aria-labelledby="contact-title">
+
+    <picture class="contact-hero__media">
+      <source media="(max-width: 767px)" srcset="/assets/images/contact-hero-mobile.jpg">
+      <img class="contact-hero__img" src="/assets/images/contact-hero.jpg" alt="Nadrix central lubrication pump with an orange reservoir lid on an industrial machine">
+    </picture>
+
+    <div class="contact-intro">
+      <h1 class="heading heading--48 heading--navy contact-intro__title" id="contact-title">Contact us.</h1>
+      <p class="contact-intro__lead">Share a few details so we can direct your enquiry to the right team.</p>
+    </div>
+
+    <!-- Desktop & tablet: phone, email and office details -->
+    <ul class="contact-info" data-reveal-group>
+      <li class="contact-info__item" data-reveal-item>
+        <img class="contact-info__icon" src="/assets/icons/contact-phone.svg" alt="" width="24" height="24">
+        <div class="contact-info__body">
+          <h2 class="contact-info__title">Phone</h2>
+          <div class="contact-info__split">
+            <p><span class="contact-info__label">Sales team</span><a href="tel:+919021116464">+91 90211 16464</a></p>
+            <p><span class="contact-info__label">Technical team</span><a href="tel:+919021114343">+91 90211 14343</a></p>
+          </div>
+        </div>
+      </li>
+      <li class="contact-info__item" data-reveal-item>
+        <img class="contact-info__icon" src="/assets/icons/contact-mail.svg" alt="" width="24" height="24">
+        <div class="contact-info__body">
+          <h2 class="contact-info__title">Email</h2>
+          <a class="contact-info__mail" href="mailto:sales@nadrixsolutions.com">sales@nadrixsolutions.com</a>
+          <a class="contact-info__mail" href="mailto:pandurang.patole@nadrixsolutions.com">pandurang.patole@nadrixsolutions.com</a>
+        </div>
+      </li>
+      <li class="contact-info__item" data-reveal-item>
+        <img class="contact-info__icon" src="/assets/icons/contact-office.svg" alt="" width="24" height="24">
+        <div class="contact-info__body">
+          <h2 class="contact-info__title">Office</h2>
+          <address class="contact-info__address">
+            <strong>Pune office address:</strong>
+            Unit No. 2 &amp; 3, Survey no. 127/1A/A, Telco Road, Mohan Nagar, Chinchwad, Tehsil - Haveli, District - Pune, Maharashtra, India
+          </address>
+          <address class="contact-info__address">
+            <strong>Mumbai office address:</strong>
+            Unit 1022, 10TH Floor, B Wing, Panchashil Plaza, NS Patkar Marg, NR Dharam Palace, Gamdevi, Grant Road, Mumbai, Maharashtra 400007.
+          </address>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Mobile: Talk to the right team (Figma 512:3450) -->
+    <div class="contact-teams">
+      <h2 class="contact-block-title">Talk to the right team</h2>
+      <div class="contact-teams__list" data-reveal-group>
+        <article class="team-card" data-reveal-item>
+          <h3 class="team-card__title">Sales team</h3>
+          <p class="team-card__desc">Discuss your requirement</p>
+          <a class="team-card__row" href="tel:+919021116464"><img src="/assets/icons/contact-phone.svg" alt="" width="20" height="20">+91 90211 16464</a>
+          <a class="team-card__row" href="mailto:sales@nadrixsolutions.com"><img src="/assets/icons/contact-mail.svg" alt="" width="20" height="20">sales@nadrixsolutions.com</a>
+        </article>
+        <article class="team-card" data-reveal-item>
+          <h3 class="team-card__title">Technical team</h3>
+          <p class="team-card__desc">Speak to our technical team</p>
+          <a class="team-card__row" href="tel:+919021114343"><img src="/assets/icons/contact-phone.svg" alt="" width="20" height="20">+91 90211 14343</a>
+          <a class="team-card__row" href="mailto:pandurang.patole@nadrixsolutions.com"><img src="/assets/icons/contact-mail.svg" alt="" width="20" height="20">pandurang.patole@nadrixsolutions.com</a>
+        </article>
+      </div>
+    </div>
+
+    <!-- Mobile: Our offices, swipeable (Figma 512:3407) -->
+    <div class="contact-offices">
+      <h2 class="contact-block-title">Our offices</h2>
+      <div class="contact-offices__track" data-reveal-group>
+        <article class="office-card" data-reveal-item>
+          <h3 class="team-card__title">Pune office</h3>
+          <p class="office-card__address">Unit No. 2 &amp; 3, Survey no. 127/1A/A, Telco Road, Mohan Nagar, Chinchwad, Tehsil - Haveli, District - Pune, Maharashtra, India</p>
+          <a class="contact-link" href="https://www.google.com/maps/search/?api=1&amp;query=Telco+Road%2C+Mohan+Nagar%2C+Chinchwad%2C+Pune%2C+Maharashtra" target="_blank" rel="noopener">Open Google maps <img src="/assets/icons/arrow-right-up-accent.svg" alt="" width="20" height="20"></a>
+        </article>
+        <article class="office-card" data-reveal-item>
+          <h3 class="team-card__title">Mumbai office</h3>
+          <p class="office-card__address">Unit 1022, 10TH Floor, B Wing, Panchashil Plaza, NS Patkar Marg, NR Dharam Palace, Gamdevi, Grant Road, Mumbai, Maharashtra 400007.</p>
+          <a class="contact-link" href="https://www.google.com/maps/search/?api=1&amp;query=Panchashil+Plaza%2C+NS+Patkar+Marg%2C+Gamdevi%2C+Mumbai+400007" target="_blank" rel="noopener">Open Google maps <img src="/assets/icons/arrow-right-up-accent.svg" alt="" width="20" height="20"></a>
+        </article>
+      </div>
+    </div>
+
+    <!-- Enquiry form (Figma 405:2110). js/main.js posts it to /api/enquiry (src/pages/api/enquiry.ts),
+         which emails the team they picked via Resend. If that fails, the visitor can send it from their email app. -->
+    <div class="contact-form-wrap">
+      <form class="enquiry" id="enquiry" novalidate data-reveal>
+        <h2 class="enquiry__title">Send an enquiry</h2>
+        <div class="enquiry__fields">
+          <div class="field">
+            <label class="field__label" for="f-name">Full name <span class="field__req" aria-hidden="true">*</span></label>
+            <input class="field__input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+            <p class="field__error" id="f-name-error" hidden>Please enter your name.</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-email">Work email <span class="field__req" aria-hidden="true">*</span></label>
+            <input class="field__input" id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+            <p class="field__error" id="f-email-error" hidden>Please enter a valid email address.</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-phone">Phone</label>
+            <input class="field__input" id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210">
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-team">Enquiry for</label>
+            <select class="field__input field__select" id="f-team" name="team">
+              <option value="sales">Sales team: new requirement</option>
+              <option value="technical">Technical team: existing system</option>
+            </select>
+          </div>
+          <div class="field field--wide">
+            <label class="field__label" for="f-message">Your requirement <span class="field__req" aria-hidden="true">*</span></label>
+            <textarea class="field__input field__textarea" id="f-message" name="message" rows="4" placeholder="Tell us about your machinery and lubrication needs" required></textarea>
+            <p class="field__error" id="f-message-error" hidden>Please tell us a little about your requirement.</p>
+          </div>
+        </div>
+        <!-- Spam trap: hidden from people, filled in by bots -->
+        <div class="enquiry__trap" aria-hidden="true">
+          <label for="f-website">Website</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <button class="btn btn--primary enquiry__submit" type="submit">Send enquiry</button>
+        <p class="enquiry__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Next steps (Figma 408:2219). On mobile only the brochure row shows, as in 512:3715. -->
+  <section class="contact-links" aria-label="More ways to reach us">
+    <div class="container contact-links__grid" data-reveal-group>
+      <article class="link-card link-card--contact" data-reveal-item>
+        <img class="link-card__icon" src="/assets/icons/contact-support.svg" alt="" width="32" height="32">
+        <h3 class="link-card__title">Contact us</h3>
+        <p class="link-card__desc">Tell us what your machinery needs. Our experts will help you find the right lubrication solution.</p>
+        <a class="contact-link link-card__link" href="#enquiry" data-focus="f-name">Contact us <img src="/assets/icons/arrow-right-up-accent.svg" alt="" width="20" height="20"></a>
+      </article>
+      <article class="link-card link-card--brochure" data-reveal-item>
+        <img class="link-card__icon" src="/assets/icons/contact-brochure.svg" alt="" width="32" height="32">
+        <h3 class="link-card__title">Read our brochure</h3>
+        <p class="link-card__desc">Explore our lubrication systems, capabilities and solutions for your industry.</p>
+        <!-- Add the brochure PDF (e.g. assets/docs/nadrix-brochure.pdf) and set href + download here -->
+        <a class="contact-link link-card__link">Download brochure <img src="/assets/icons/arrow-right-up-accent.svg" alt="" width="20" height="20"></a>
+      </article>
+      <article class="link-card link-card--office" data-reveal-item>
+        <img class="link-card__icon" src="/assets/icons/contact-map.svg" alt="" width="32" height="32">
+        <h3 class="link-card__title">Find your local office</h3>
+        <p class="link-card__desc">Locate your nearest Nadrix office for expert guidance and application support.</p>
+        <div class="link-card__links">
+          <a class="contact-link" href="https://www.google.com/maps/search/?api=1&amp;query=Telco+Road%2C+Mohan+Nagar%2C+Chinchwad%2C+Pune%2C+Maharashtra" target="_blank" rel="noopener">Pune office <img src="/assets/icons/arrow-right-up-accent.svg" alt="" width="20" height="20"></a>
+          <a class="contact-link" href="https://www.google.com/maps/search/?api=1&amp;query=Panchashil+Plaza%2C+NS+Patkar+Marg%2C+Gamdevi%2C+Mumbai+400007" target="_blank" rel="noopener">Mumbai office <img src="/assets/icons/arrow-right-up-accent.svg" alt="" width="20" height="20"></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</BaseLayout>

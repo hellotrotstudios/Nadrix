@@ -1,0 +1,66 @@
+---
+interface Props { home?: boolean }
+const { home = false } = Astro.props;
+---
+<footer class="site-footer" id="contact">
+  <div class="site-footer__inner">
+    <img class="site-footer__wordmark" src="/assets/icons/footer-wordmark.svg" alt="" aria-hidden="true">
+    <div class="site-footer__content">
+      <div class="site-footer__cols">
+        <div class="footer-col">
+          <h4 class="footer-col__title">Explore Nadrix</h4>
+          <a class="footer-col__link" href="/about">About Nadrix</a>
+          <a class="footer-col__link" href="/systems">Lubrication systems</a>
+          <a class="footer-col__link" href="/industries">Industries</a>
+          <a class="footer-col__link" href={home ? "#expertise" : "/#expertise"}>Custom Solutions</a>
+          <a class="footer-col__link" href="/blogs-events">Blogs &amp; events</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col__title">Industries We Serve</h4>
+          <a class="footer-col__link" href="/industries#cement">Cement industry</a>
+          <a class="footer-col__link" href="/industries#automotive">Automotive Industry</a>
+          <a class="footer-col__link" href="/industries#steel">Steel mills</a>
+          <a class="footer-col__link" href="/industries#paper">Paper machines</a>
+          <a class="footer-col__link" href="/industries#mining">Mining Industry</a>
+          <a class="footer-col__link" href="/industries#wind">Wind – Power &amp; Railways</a>
+          <a class="footer-col__link" href="/industries#hydraulic-presses">Hydraulic presses</a>
+        </div>
+        <div class="footer-col footer-col--contact">
+          <div class="footer-col__group">
+            <h4 class="footer-col__title">Discuss requirement</h4>
+            <a class="footer-col__link" href="tel:+919021116464">Phone: +91 90211 16464</a>
+            <a class="footer-col__mail" href="mailto:sales@nadrixsolutions.com">sales@nadrixsolutions.com</a>
+          </div>
+          <div class="footer-col__group">
+            <h4 class="footer-col__title">Speak to Technical Team</h4>
+            <a class="footer-col__link" href="tel:+919021114343">Phone: +91 90211 14343</a>
+            <a class="footer-col__mail footer-col__mail--sm" href="mailto:pandurang.patole@nadrixsolutions.com">pandurang.patole@nadrixsolutions.com</a>
+          </div>
+        </div>
+        <div class="footer-col footer-col--address">
+          <h4 class="footer-col__title">Our Address</h4>
+          <address class="footer-col__address">
+            <strong>Pune office address:</strong><br>
+            Unit No. 2 &amp; 3, Survey no.<br>
+            127/1A/A, Telco Road, Mohan<br>
+            Nagar, Chinchwad, Tehsil -<br>
+            Haveli, District - Pune,<br>
+            Maharashtra, India<br>
+            <br><br>
+            <strong>Mumbai office address:</strong><br>
+            Unit 1022, 10TH Floor, B Wing,<br>
+            Panchashil Plaza, NS Patkar Marg,<br>
+            NR Dharam Palace, Gamdevi,<br>
+            Grant Road,<br>
+            Mumbai, Maharashtra 400007.
+          </address>
+        </div>
+      </div>
+      <img class="site-footer__logo" src="/assets/images/logo-nadrix.png" alt="Nadrix" width="171" height="48">
+      <div class="site-footer__bottom">
+        <img class="site-footer__line" src="/assets/icons/footer-line.svg" alt="" aria-hidden="true">
+        <p class="site-footer__copy">© 2026 Nadrix Solutions Pvt. Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>

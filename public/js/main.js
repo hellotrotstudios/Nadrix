@@ -208,13 +208,18 @@
   }
 
   // Events move from "next" to "past" on their own once their end date has gone by.
+  // An element can carry both: it shows after one date and hides after another (the next upcoming event).
   var today = new Date().toISOString().slice(0, 10);
-  document.querySelectorAll('[data-hide-after]').forEach(function (el) { if (today > el.dataset.hideAfter) el.hidden = true; });
-  document.querySelectorAll('[data-show-after]').forEach(function (el) { if (today > el.dataset.showAfter) el.hidden = false; });
+  document.querySelectorAll('[data-hide-after], [data-show-after]').forEach(function (el) {
+    var showAfter = el.dataset.showAfter;
+    var hideAfter = el.dataset.hideAfter;
+    if (hideAfter && today > hideAfter) el.hidden = true;
+    else if (showAfter && today > showAfter) el.hidden = false;
+  });
 
   // ---------------------------------------------------------------------------
-  // Contact page: enquiry form. No backend yet, so a valid enquiry opens the
-  // visitor's email app with everything filled in, addressed to the chosen team.
+  // Contact page: enquiry form. A valid enquiry is posted to /api/enquiry, which
+  // emails the chosen team via Resend (src/pages/api/enquiry.ts).
   // ---------------------------------------------------------------------------
   var enquiry = document.getElementById('enquiry');
   if (enquiry) {
@@ -250,19 +255,78 @@
       });
       if (firstBad) { status.textContent = ''; firstBad.focus(); return; }
 
+      if (sending) return;
       var f = enquiry.elements;
-      var to = teams[f.team.value] || teams.sales;
-      var body = [
-        'Name: ' + f.name.value.trim(),
-        'Email: ' + f.email.value.trim(),
-        f.phone.value.trim() ? 'Phone: ' + f.phone.value.trim() : '',
-        '',
-        f.message.value.trim()
-      ].filter(function (line, i) { return line !== '' || i === 3; }).join('\n');
-      var subject = 'Website enquiry from ' + f.name.value.trim();
-      window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      status.textContent = 'Your email app should open with the enquiry ready to send. If it doesn’t, email us at ' + to + '.';
+      var payload = {
+        name: f.name.value.trim(),
+        email: f.email.value.trim(),
+        phone: f.phone.value.trim(),
+        team: f.team.value,
+        message: f.message.value.trim(),
+        website: f.website ? f.website.value : ''
+      };
+      setSending(true);
+      status.classList.remove('enquiry__status--ok');
+      status.textContent = 'Sending…';
+
+      fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) { return { res: res, data: data }; });
+      }).then(function (r) {
+        setSending(false);
+        if (r.res.ok && r.data.ok) {
+          enquiry.reset();
+          status.classList.add('enquiry__status--ok');
+          status.textContent = 'Thank you. Your enquiry has been sent, and our team will get back to you shortly.';
+          return;
+        }
+        if (r.res.status === 422 && r.data.fields) {
+          // The server disagreed with a field: highlight it like the browser-side checks do
+          var firstBad = null;
+          checks.forEach(function (check) {
+            var bad = r.data.fields.indexOf(check.el.name) !== -1;
+            setError(check, bad);
+            if (bad && !firstBad) firstBad = check.el;
+          });
+          status.textContent = r.data.error || 'Please check the highlighted fields.';
+          if (firstBad) firstBad.focus();
+          return;
+        }
+        offerEmail(payload);
+      }).catch(function () {
+        setSending(false);
+        offerEmail(payload);
+      });
     });
+
+    var sending = false;
+    var submitBtn = enquiry.querySelector('.enquiry__submit');
+    var setSending = function (on) {
+      sending = on;
+      submitBtn.setAttribute('aria-disabled', String(on));
+    };
+
+    // If the email service is down, never lose the enquiry: offer it pre-filled in the visitor's email app.
+    var offerEmail = function (p) {
+      var to = teams[p.team] || teams.sales;
+      var body = [
+        'Name: ' + p.name,
+        'Email: ' + p.email,
+        p.phone ? 'Phone: ' + p.phone : '',
+        '',
+        p.message
+      ].filter(function (line, i) { return line !== '' || i === 3; }).join('\n');
+      var subject = 'Website enquiry from ' + p.name;
+      var link = document.createElement('a');
+      link.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      link.textContent = 'send it from your email app';
+      status.textContent = 'Sorry, we couldn’t send your enquiry just now. Please try again, or ';
+      status.appendChild(link);
+      status.appendChild(document.createTextNode(' (to ' + to + ').'));
+    };
   }
   // "Contact us" card: scroll to the form and put the cursor in the first field
   document.querySelectorAll('[data-focus]').forEach(function (link) {

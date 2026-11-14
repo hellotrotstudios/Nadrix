@@ -1,0 +1,113 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { toHTML, uriLooksSafe } from '@portabletext/to-html';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Cta from '../../components/Cta.astro';
+import { getPosts, sanityImage, formatLongDate, TOPIC_LABELS, type Post } from '../../lib/content';
+
+// One page per post that has an article body. Posts without a body only appear as cards.
+export const getStaticPaths = (async () => {
+  const posts = await getPosts();
+  return posts.filter((p) => p.body.length > 0).map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props as { post: Post };
+
+const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+const bodyHtml = toHTML(post.body, {
+  components: {
+    types: {
+      image: ({ value }) => {
+        const img = sanityImage(value);
+        if (!img) return '';
+        const caption = value.caption ? `<figcaption>${esc(value.caption)}</figcaption>` : '';
+        return `<figure><img src="${img.url(1400)}" alt="${esc(img.alt)}" loading="lazy">${caption}</figure>`;
+      },
+    },
+    marks: {
+      link: ({ children, value }) => {
+        const href: string = value?.href ?? '';
+        if (!uriLooksSafe(href)) return children;
+        const external = /^https?:\/\//.test(href);
+        return `<a href="${esc(href)}"${external ? ' target="_blank" rel="noopener"' : ''}>${children}</a>`;
+      },
+    },
+  },
+});
+
+const allPosts = await getPosts();
+const related = allPosts
+  .filter((p) => p.slug !== post.slug && p.body.length > 0)
+  .sort((a, b) => Number(b.topic === post.topic) - Number(a.topic === post.topic))
+  .slice(0, 3);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.seoDescription || post.excerpt,
+  datePublished: post.publishedAt,
+  image: post.image.url(1200),
+  publisher: { '@type': 'Organization', name: 'Nadrix Solutions' },
+};
+---
+<BaseLayout
+  title={`${post.seoTitle || post.title} — Nadrix Solutions`}
+  description={post.seoDescription || post.excerpt}
+  current="blogs"
+  headerRule
+  ogImage={post.image.url(1200, 630)}
+  ogType="article"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article class="article">
+    <header class="container article__header">
+      <a class="article__back" href="/blogs-events#blogs">← All articles</a>
+      <p class="article__meta">
+        <span class="article__topic">{TOPIC_LABELS[post.topic]}</span>
+        <time datetime={post.publishedAt}>{formatLongDate(post.publishedAt)}</time>
+      </p>
+      <h1 class="heading heading--48 heading--navy article__title">{post.title}</h1>
+      <p class="article__lead">{post.excerpt}</p>
+    </header>
+
+    <div class="container">
+      <div class="article__hero">
+        <img src={post.image.url(1600, 900)} alt={post.image.alt}>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="article__body" set:html={bodyHtml} />
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="posts" aria-labelledby="related-title">
+      <div class="container">
+        <div class="posts__header">
+          <h2 class="heading heading--36" id="related-title">More articles</h2>
+        </div>
+        <div class="post-grid">
+          {related.map((p) => (
+            <article class="post-card" data-topic={p.topic}>
+              <div class="post-card__media">
+                <img src={p.image.url(720)} alt={p.image.alt} loading="lazy">
+              </div>
+              <div class="post-card__body">
+                <p class="post-card__topic">{TOPIC_LABELS[p.topic]}</p>
+                <h3 class="post-card__title"><a href={`/blog/${p.slug}`}>{p.title}</a></h3>
+                <p class="post-card__desc">{p.excerpt}</p>
+                <span class="post-card__more">Read article <img src="/assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Cta />
+</BaseLayout>

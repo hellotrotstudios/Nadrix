@@ -1,0 +1,46 @@
+---
+// Site header. `current` marks the active nav item; `rule` adds the bottom border used on inner pages.
+export type NavKey = 'home' | 'about' | 'systems' | 'industries' | 'blogs' | 'contact';
+
+interface Props {
+  current?: NavKey;
+  rule?: boolean;
+}
+
+const { current = 'home', rule = false } = Astro.props;
+
+// About, systems and industries use the orange "accent" active style from the design;
+// Blogs & events uses the bold one.
+const links: { key: NavKey; href: string; label: string; accent: boolean }[] = [
+  { key: 'about', href: 'about', label: 'About us', accent: true },
+  { key: 'systems', href: 'systems', label: 'Our systems', accent: true },
+  { key: 'industries', href: 'industries', label: 'Industries', accent: true },
+  { key: 'blogs', href: 'blogs-events', label: 'Blogs & events', accent: false },
+];
+const isContact = current === 'contact';
+const contactCurrent = isContact ? 'page' : undefined;
+---
+<header class:list={['site-header', { 'site-header--rule': rule }]}>
+  <div class="site-header__inner">
+    <a class="site-header__logo" href={current === 'home' ? '#top' : '/'} aria-label="Nadrix home">
+      <img src="/assets/images/logo-nadrix.png" alt="Nadrix" width="150" height="42">
+    </a>
+    <a class="btn btn--expert site-header__cta" href="/contact" aria-current={contactCurrent}>Talk to an expert</a>
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      {links.map((l) => {
+        const active = l.key === current;
+        return (
+          <a
+            class:list={['site-nav__link', { 'site-nav__link--accent': active && l.accent }]}
+            href={`/${l.href}`}
+            aria-current={active ? 'page' : undefined}
+          >{l.label}</a>
+        );
+      })}
+      <a class="btn btn--expert" href="/contact" aria-current={contactCurrent}>Talk to an expert</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cta from '../components/Cta.astro';
+import { getPosts, getEvents, formatDateRange, postUrl, TOPIC_LABELS, type Topic } from '../lib/content';
+
+const TOPICS = Object.keys(TOPIC_LABELS) as Topic[];
+
+const allPosts = await getPosts();
+// The newest featured post leads as the big card; the rest follow newest first.
+const featured = allPosts.find((p) => p.featured) ?? allPosts[0];
+const posts = featured ? [featured, ...allPosts.filter((p) => p !== featured)] : [];
+
+// "Today" in India, where the events are. Content is rebuilt whenever it's published, and
+// js/main.js re-checks dates in the browser so a stale build never shows a finished event as next.
+const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
+const events = await getEvents(); // newest first
+const upcoming = events.filter((e) => e.endDate >= today).reverse(); // soonest first
+const past = events.filter((e) => e.endDate < today);
+
+// Splits hyphenated words like "oil-air" into a no-wrap span so they don't break across lines.
+const titleParts = (title: string) => title.split(/(\S+-\S+)/).filter(Boolean);
+---
+<BaseLayout title="Blogs & Events — Nadrix Solutions" description="Practical notes on lubrication systems, and where to meet the Nadrix team next." current="blogs" headerRule>
+
+  <!-- Intro -->
+  <div class="container page-intro">
+    <h1 class="heading heading--48 heading--navy">Blogs &amp; events</h1>
+    <p class="page-intro__lead">Practical notes on lubrication systems, and where to meet the Nadrix team next.</p>
+  </div>
+
+  <!-- Next event. Every upcoming event is rendered; js/main.js shows the one whose turn it is
+       (data-show-after = the previous event's end, data-hide-after = its own end). -->
+  {upcoming.map((e, i) => (
+    <div class="container">
+      <section
+        class="next-event"
+        aria-labelledby={`next-event-${i}`}
+        data-hide-after={e.endDate}
+        data-show-after={i > 0 ? upcoming[i - 1].endDate : undefined}
+        hidden={i > 0}
+      >
+        <div class="next-event__body">
+          <p class="next-event__label">Next event</p>
+          <h2 class="heading heading--48 next-event__title" id={`next-event-${i}`}>{e.name}</h2>
+          {e.tagline && <p class="next-event__lead">{e.tagline}</p>}
+          <dl class="next-event__details">
+            <div><dt>Date</dt><dd>{formatDateRange(e.startDate, e.endDate)}</dd></div>
+            {e.stall && <div><dt>Stall</dt><dd>{e.stall}</dd></div>}
+            <div><dt>Venue</dt><dd>{e.venue}</dd></div>
+          </dl>
+          <a class="btn btn--primary" href={`mailto:${e.meetingEmail}?subject=${encodeURIComponent(`Meeting at ${e.name}`)}`}>Plan a meeting</a>
+        </div>
+        <div class="next-event__media">
+          {e.image && <img src={e.image.url(1200)} alt={e.image.alt}>}
+        </div>
+      </section>
+    </div>
+  ))}
+
+  <!-- Blogs -->
+  <section class="posts" id="blogs" aria-labelledby="blogs-title">
+    <div class="container">
+      <div class="posts__header">
+        <h2 class="heading heading--36" id="blogs-title">Blogs</h2>
+        <div class="post-filter" role="group" aria-label="Filter blogs by topic">
+          <button class="post-filter__btn" type="button" aria-pressed="true" data-topic="all">All</button>
+          {TOPICS.map((t) => (
+            <button class="post-filter__btn" type="button" aria-pressed="false" data-topic={t}>{TOPIC_LABELS[t]}</button>
+          ))}
+        </div>
+      </div>
+
+      {posts.length === 0 && <p class="page-intro__lead">New articles are on their way.</p>}
+
+      <!-- A card links to its article once the article has a body in Sanity -->
+      <div class="post-grid">
+        {posts.map((p, i) => {
+          const hasArticle = p.body.length > 0;
+          return (
+            <article class:list={['post-card', { 'post-card--featured': i === 0 }]} data-topic={p.topic}>
+              <div class="post-card__media">
+                <img
+                  src={p.image.url(i === 0 ? 1200 : 720)}
+                  alt={p.image.alt}
+                  loading={i === 0 ? undefined : 'lazy'}
+                >
+              </div>
+              <div class="post-card__body">
+                <p class="post-card__topic">{TOPIC_LABELS[p.topic]}</p>
+                <h3 class="post-card__title">
+                  <a href={hasArticle ? postUrl(p.slug) : undefined}>
+                    {titleParts(p.title).map((part) => (/-/.test(part) && !/\s/.test(part) ? <span class="post-card__nowrap">{part}</span> : part))}
+                  </a>
+                </h3>
+                <p class="post-card__desc">{p.excerpt}</p>
+                {hasArticle && (
+                  <span class="post-card__more">Read article <img src="/assets/icons/arrow-right-up-orange.svg" alt="" width="20" height="20"></span>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Past events. Upcoming ones are included hidden; js/main.js reveals each after its end date. -->
+  <section class="past-events" id="events" aria-labelledby="past-events-title">
+    <div class="container">
+      <h2 class="heading heading--36" id="past-events-title">Past events</h2>
+      <ul class="event-list">
+        {[...upcoming].reverse().concat(past).map((e) => {
+          const isUpcoming = e.endDate >= today;
+          return (
+            <li class="event-row" data-show-after={isUpcoming ? e.endDate : undefined} hidden={isUpcoming}>
+              <span class="event-row__date">{formatDateRange(e.startDate, e.endDate)}</span>
+              <div class="event-row__name">
+                <h3>{e.name}</h3>
+                {e.tagline && <p>{e.tagline}</p>}
+              </div>
+              <span class="event-row__venue">{e.venue}</span>
+              {e.stall && <span class="event-row__stall">Stall {e.stall}</span>}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </section>
+
+  <Cta />
+
+</BaseLayout>

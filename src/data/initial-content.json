@@ -1,0 +1,93 @@
+{
+  "_note": "The blog posts and events that were hard-coded before Sanity. Used (1) by studio/seed to import them into Sanity once, and (2) by the website as a fallback when no Sanity project is configured. After Sanity is live, edit content in the Studio, not here.",
+  "posts": [
+    {
+      "slug": "choosing-a-lubrication-system",
+      "title": "Choosing a lubrication system: single-line, progressive or oil-air",
+      "topic": "systems",
+      "featured": true,
+      "publishedAt": "2026-11-01T09:00:00.000Z",
+      "excerpt": "The right system depends on your lubrication points, operating conditions and maintenance requirements. Here’s how to compare the main options.",
+      "image": "blog-choosing-system.jpg",
+      "alt": "Engineer reviewing a lubrication system layout on screen"
+    },
+    {
+      "slug": "wind-turbines-and-railways-friction-and-wear",
+      "title": "Wind turbines and railways: keeping friction and wear under control",
+      "topic": "industries",
+      "publishedAt": "2026-10-25T09:00:00.000Z",
+      "excerpt": "How the right lubrication reduces friction, minimises wear and supports reliable operation on wind and rail equipment.",
+      "image": "industry-wind-railways.jpg",
+      "alt": "Wind turbines above open farmland"
+    },
+    {
+      "slug": "oil-circulating-systems-for-bearings-and-gears",
+      "title": "What an oil circulating system does for bearings and gears",
+      "topic": "systems",
+      "publishedAt": "2026-10-18T09:00:00.000Z",
+      "excerpt": "Continuously circulating, filtering and cooling oil protects components, removes heat and supports demanding operation.",
+      "image": "system-oil-circulating.webp",
+      "alt": "Oil circulating lubrication system"
+    },
+    {
+      "slug": "annual-maintenance-contract-or-service-visits",
+      "title": "Annual maintenance contract or individual service visits?",
+      "topic": "service",
+      "publishedAt": "2026-10-11T09:00:00.000Z",
+      "excerpt": "Two ways to care for a lubrication system throughout operation, and when replacing an existing system makes more sense.",
+      "image": "blog-maintenance.jpg",
+      "alt": "Technician measuring lubrication components"
+    },
+    {
+      "slug": "dual-line-and-progressive-systems-in-steel-plants",
+      "title": "Where dual-line and progressive systems combine in steel plants",
+      "topic": "industries",
+      "publishedAt": "2026-10-04T09:00:00.000Z",
+      "excerpt": "A look at combined distribution configurations for rolling mills and steel plant machinery.",
+      "image": "industry-steel.jpg",
+      "alt": "Steel plant machinery"
+    },
+    {
+      "slug": "commissioning-and-operator-training",
+      "title": "What commissioning and operator training should cover",
+      "topic": "service",
+      "publishedAt": "2026-09-27T09:00:00.000Z",
+      "excerpt": "From post-commissioning test runs to the everyday checks your operators and maintenance personnel need to know.",
+      "image": "blog-commissioning.jpg",
+      "alt": "Technician installing a lubrication pump"
+    },
+    {
+      "slug": "oil-and-grease-lubrication-for-paper-machines",
+      "title": "Oil and grease lubrication for paper machines",
+      "topic": "industries",
+      "publishedAt": "2026-09-20T09:00:00.000Z",
+      "excerpt": "Tailoring lubrication systems to paper-machine components and continuous production requirements.",
+      "image": "industry-paper.jpg",
+      "alt": "Paper mill machinery"
+    }
+  ],
+  "events": [
+    {
+      "id": "inno-rail-2026",
+      "name": "Inno Rail 2026",
+      "tagline": "Lubrication engineered for railways.",
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-28",
+      "venue": "RDSO Stadium Ground, Lucknow, India",
+      "stall": "201",
+      "image": "event-innorail.jpg",
+      "alt": "Orange and white Vande Bharat express train on a railway line",
+      "meetingEmail": "sales@nadrixsolutions.com"
+    },
+    {
+      "id": "windergy-india-2026",
+      "name": "Windergy India 2026",
+      "tagline": "Lubrication engineered for wind power.",
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-09",
+      "venue": "Chennai Trade Centre, Chennai, India",
+      "stall": "H2-A108",
+      "meetingEmail": "sales@nadrixsolutions.com"
+    }
+  ]
+}

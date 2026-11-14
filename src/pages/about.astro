@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="About us — Nadrix Solutions" description="Nadrix Solutions brings together global lubrication technology and local engineering expertise, from application planning to installation, commissioning and ongoing service." current="about">
+
+  <!-- Hero card (Figma 481:1330 desktop · 514:6356 mobile) — same card as the Systems page -->
+  <section class="sys-hero sys-hero--about" aria-labelledby="about-title">
+    <picture class="sys-hero__media">
+      <source media="(max-width: 767px)" srcset="/assets/images/about-hero-mobile.jpg">
+      <img class="sys-hero__img" src="/assets/images/about-hero.jpg" alt="Nadrix lubrication pump with an orange reservoir lid in a machine shop">
+    </picture>
+    <div class="sys-hero__copy">
+      <p class="sys-hero__eyebrow">About us</p>
+      <h1 class="sys-hero__title" id="about-title">The system matters.<br>So does the partner.</h1>
+    </div>
+  </section>
+
+  <!-- Intro + stats (481:1337) -->
+  <section class="about-intro" aria-label="Who we are">
+    <div class="container about-wrap about-intro__inner">
+      <div class="about-intro__lead" data-reveal>
+        <p>Nadrix Solutions brings together global lubrication technology and local engineering expertise. We design and supply customised systems around your machinery, operating conditions and maintenance needs.</p>
+        <p>From application planning and component selection to installation, commissioning and ongoing service, we work alongside your team to help keep operations moving.</p>
+      </div>
+      <ul class="about-stats" data-reveal-group>
+        <li class="about-stat" data-reveal-item><span class="about-stat__value">8+</span><span class="about-stat__label">industries served, from cement and steel to wind and rail</span></li>
+        <li class="about-stat" data-reveal-item><span class="about-stat__value">02</span><span class="about-stat__label">offices in Maharashtra — Pune and Mumbai</span></li>
+        <li class="about-stat about-stat--wide" data-reveal-item><span class="about-stat__value">ISO 9001:2015</span><span class="about-stat__label">certified quality management</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Process (481:1359) -->
+  <section class="about-process" aria-labelledby="process-title">
+    <div class="container about-wrap">
+      <div class="about-process__head">
+        <h2 class="heading about-title" id="process-title">From first plan to ongoing performance.</h2>
+        <p class="about-process__lead" data-reveal>One partner through every stage — continuity from planning to commissioning and service.</p>
+      </div>
+      <ol class="about-steps" data-reveal-group>
+        <li class="about-step" data-reveal-item>
+          <span class="about-step__num">01</span>
+          <h3 class="about-step__title">Engineering</h3>
+          <p class="about-step__desc">Application review, system selection and customised layouts.</p>
+        </li>
+        <li class="about-step" data-reveal-item>
+          <span class="about-step__num">02</span>
+          <h3 class="about-step__title">Supply</h3>
+          <p class="about-step__desc">Lubrication systems, components and fluid connections.</p>
+        </li>
+        <li class="about-step" data-reveal-item>
+          <span class="about-step__num">03</span>
+          <h3 class="about-step__title">Installation</h3>
+          <p class="about-step__desc">Installation guidance, commissioning and operator training.</p>
+        </li>
+        <li class="about-step" data-reveal-item>
+          <span class="about-step__num">04</span>
+          <h3 class="about-step__title">Service &amp; support</h3>
+          <p class="about-step__desc">Maintenance visits, troubleshooting and system upgrades.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Feature cards (514:6318) -->
+  <section class="about-features" aria-label="How we work">
+    <div class="container about-wrap about-features__grid" data-reveal-group>
+      <article class="feature-card feature-card--a" data-reveal-item>
+        <div class="feature-card__media">
+          <img src="/assets/images/about-feature-assembly.jpg" alt="Lubrication assembly with orange reservoir caps, pressure gauges and distributor blocks" loading="lazy">
+        </div>
+        <div class="feature-card__panel">
+          <span class="feature-card__glyph" aria-hidden="true">◇</span>
+          <h3 class="feature-card__title">Built on understanding what machinery needs.</h3>
+          <p class="feature-card__desc">We start by understanding your equipment, lubrication points and operating environment. This insight guides how we select components, plan the system and support its integration.</p>
+          <a class="btn-line" href="/#expertise">Our expertise <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </div>
+      </article>
+      <article class="feature-card feature-card--b" data-reveal-item>
+        <div class="feature-card__media">
+          <img src="/assets/images/about-feature-precision.jpg" alt="Gear unit with an oil reservoir and orange lubrication lines" loading="lazy">
+        </div>
+        <div class="feature-card__panel">
+          <span class="feature-card__glyph" aria-hidden="true">✧</span>
+          <h3 class="feature-card__title">Precision for complex applications.</h3>
+          <ul class="feature-card__list">
+            <li>Application-led system selection</li>
+            <li>Custom integration and monitoring</li>
+            <li>Support across the system lifecycle</li>
+          </ul>
+          <a class="btn-line" href="/systems">Our systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Key benefits (481:1404) -->
+  <section class="about-benefits" aria-labelledby="benefits-title">
+    <div class="container about-benefits__inner">
+      <div class="about-benefits__intro">
+        <h2 class="heading about-benefits__title" id="benefits-title">Better control.<br>Less manual effort.</h2>
+        <p class="about-benefits__lead" data-reveal>Moving from manual greasing to a centralized system changes how your machines are maintained — and how long they last.</p>
+      </div>
+      <ul class="about-benefits__grid" data-reveal-group>
+        <li class="benefit" data-reveal-item>
+          <img class="benefit__icon" src="/assets/icons/benefit-trending.svg" alt="" width="28" height="28">
+          <h3 class="benefit__title">Longer component life</h3>
+          <p class="benefit__desc">Consistent lubrication reduces friction and wear on bearings, gears and guideways.</p>
+        </li>
+        <li class="benefit" data-reveal-item>
+          <img class="benefit__icon" src="/assets/icons/benefit-clock.svg" alt="" width="28" height="28">
+          <h3 class="benefit__title">Less unplanned downtime</h3>
+          <p class="benefit__desc">Points are lubricated while the machine runs — no stops for manual greasing.</p>
+        </li>
+        <li class="benefit" data-reveal-item>
+          <img class="benefit__icon" src="/assets/icons/benefit-droplet.svg" alt="" width="28" height="28">
+          <h3 class="benefit__title">Lower lubricant consumption</h3>
+          <p class="benefit__desc">Metered doses replace over-greasing, cutting lubricant use and waste.</p>
+        </li>
+        <li class="benefit" data-reveal-item>
+          <img class="benefit__icon" src="/assets/icons/benefit-shield.svg" alt="" width="28" height="28">
+          <h3 class="benefit__title">Safer maintenance</h3>
+          <p class="benefit__desc">Technicians no longer need to reach hot, moving or hard-to-access points.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Capabilities (481:1440) -->
+  <section class="about-cap" aria-labelledby="cap-title">
+    <div class="container about-wrap about-cap__inner">
+      <div class="about-cap__photos" data-reveal-group>
+        <img class="about-cap__photo about-cap__photo--main" src="/assets/images/about-team-main.jpg" alt="Nadrix engineers working on a lubrication pump at a customer site" loading="lazy" data-reveal-item>
+        <img class="about-cap__photo about-cap__photo--tilt" src="/assets/images/about-team-2.jpg" alt="Technician connecting lubrication lines to a motor" loading="lazy" data-reveal-item>
+        <img class="about-cap__photo" src="/assets/images/about-team-3.jpg" alt="Engineers reviewing a system layout together" loading="lazy" data-reveal-item>
+      </div>
+      <div class="about-cap__copy">
+        <h2 class="heading about-title" id="cap-title">Turning requirements into working systems.</h2>
+        <p class="about-cap__lead" data-reveal>From engineering and application planning through integration, commissioning and on-site service.</p>
+        <ul class="about-cap__list" data-reveal-group>
+          <li data-reveal-item><h3>Engineering &amp; application planning</h3><p>Application review, system selection and customised layouts.</p></li>
+          <li data-reveal-item><h3>System integration &amp; commissioning</h3><p>Assembly, testing and commissioning for reliable operation.</p></li>
+          <li data-reveal-item><h3>Technical service &amp; training</h3><p>On-site support, operator training and ongoing maintenance.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality banner (481:1464) -->
+  <section class="about-quality" aria-labelledby="quality-title">
+    <picture class="about-quality__media" aria-hidden="true">
+      <source media="(max-width: 767px)" srcset="/assets/images/about-quality-mobile.jpg">
+      <img src="/assets/images/about-quality.jpg" alt="" loading="lazy">
+    </picture>
+    <div class="container about-wrap about-quality__inner">
+      <p class="about-quality__eyebrow">Quality</p>
+      <h2 class="heading about-quality__title" id="quality-title">Quality in every<br>connection.</h2>
+      <p class="about-quality__lead" data-reveal>Careful component selection, installation checks and commissioning support help build confidence in every system.</p>
+      <a class="btn btn--outline btn--cta" href="/contact" data-reveal>
+        Contact us
+        <span class="btn__arrow-diag"><img src="/assets/icons/arrow-right-up.svg" alt="" width="20" height="20"></span>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

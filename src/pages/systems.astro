@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Our systems — Nadrix Solutions" description="Centralized, oil-air, single line, grease, progressive and oil circulating lubrication systems, engineered around your equipment and operating conditions." current="systems">
+
+  <!-- Hero card (Figma 508:847 desktop, 510:2250 mobile) -->
+  <section class="sys-hero" aria-labelledby="sys-hero-title">
+    <picture class="sys-hero__media">
+      <source media="(max-width: 767px)" srcset="/assets/images/systems-hero-mobile.jpg">
+      <img class="sys-hero__img" src="/assets/images/systems-hero.jpg" alt="Grease lubrication pump and distributor block mounted on industrial machinery">
+    </picture>
+    <div class="sys-hero__copy">
+      <p class="sys-hero__eyebrow">Our systems</p>
+      <h1 class="sys-hero__title" id="sys-hero-title">Lubrication systems<br class="br-desktop"> engineered to keep you moving.</h1>
+    </div>
+  </section>
+
+  <!-- Systems -->
+  <section class="sys-list" aria-labelledby="sys-list-title">
+    <div class="container">
+      <div class="sys-list__intro">
+        <h2 class="heading sys-list__title" id="sys-list-title">Systems designed<br>to keep you moving.</h2>
+        <p class="sys-list__lead" data-reveal>From individual lubrication points to complex industrial machinery, NADRIX brings together systems, components and application expertise to deliver lubricant where it’s needed.<span class="sys-list__lead-more"> Explore solutions built around your equipment, operating conditions and maintenance requirements.</span></p>
+      </div>
+
+      <!-- System detail pages don't exist yet: give each "Explore" link an href when they do -->
+      <div class="sys-grid" data-reveal-group>
+
+        <article class="sys-card" data-reveal-item>
+          <div class="sys-card__media">
+            <img src="/assets/images/system-centralized.png" alt="Woerner central lubrication pump with an orange reservoir lid" loading="lazy">
+          </div>
+          <h3 class="sys-card__title">Centralized Lubrication Systems</h3>
+          <p class="sys-card__desc">Deliver the right amount of lubricant to multiple points from one central source, reducing manual maintenance and keeping machinery running smoothly.</p>
+          <a class="sys-card__link">Explore Centralized Lubrication Systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </article>
+
+        <article class="sys-card" data-reveal-item>
+          <div class="sys-card__media">
+            <img src="/assets/images/system-oil-air.webp" alt="Oil-air lubrication panel with gauges, flow sensors and an oil reservoir" loading="lazy">
+          </div>
+          <h3 class="sys-card__title">Oil-Air Lubrication Systems</h3>
+          <p class="sys-card__desc">Deliver precisely metered oil through a controlled air stream, supporting reliable lubrication for high-speed bearings &amp; spindles with minimal lubricant consumption.</p>
+          <a class="sys-card__link">Explore Oil-Air Lubrication Systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </article>
+
+        <article class="sys-card" data-reveal-item>
+          <div class="sys-card__media sys-card__media--flip">
+            <img src="/assets/images/system-single-line.png" alt="Single line lubrication pump feeding copper lines to metering valves" loading="lazy">
+          </div>
+          <h3 class="sys-card__title">Single Line Lubrication Systems</h3>
+          <p class="sys-card__desc">Supply measured lubricant to multiple points through a single main line, offering a compact, adaptable solution for everyday machine lubrication.</p>
+          <a class="sys-card__link">Explore Single Line Lubrication Systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </article>
+
+        <article class="sys-card" data-reveal-item>
+          <div class="sys-card__media sys-card__media--flip">
+            <img src="/assets/images/system-grease.png" alt="Grease lubrication pump with a distributor block" loading="lazy">
+          </div>
+          <h3 class="sys-card__title">Grease Lubrication Systems</h3>
+          <p class="sys-card__desc">Deliver grease directly to critical components at controlled intervals, helping reduce friction, wear and maintenance demands in heavy-duty machinery.</p>
+          <a class="sys-card__link">Explore Grease Lubrication Systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </article>
+
+        <article class="sys-card" data-reveal-item>
+          <div class="sys-card__media sys-card__media--flip">
+            <img src="/assets/images/system-progressive.png" alt="Progressive distributor panel with lubricant lines and a control box" loading="lazy">
+          </div>
+          <h3 class="sys-card__title">Progressive Distributor Systems</h3>
+          <p class="sys-card__desc">Distribute measured lubricant in a defined sequence, ensuring each connected point receives its share for consistent, controlled machine lubrication.</p>
+          <a class="sys-card__link">Explore Progressive Distributor Systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </article>
+
+        <article class="sys-card" data-reveal-item>
+          <div class="sys-card__media">
+            <img src="/assets/images/system-oil-circulating.webp" alt="Oil circulating system with pumps, filters and a plate heat exchanger" loading="lazy">
+          </div>
+          <h3 class="sys-card__title">Oil Circulating System</h3>
+          <p class="sys-card__desc">Continuously circulate, filter and cool lubricating oil to protect bearings and gears, remove heat and support reliable operation under demanding conditions.</p>
+          <a class="sys-card__link">Explore Oil Circulating Systems <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta cta--systems">
+    <div class="cta__bg" aria-hidden="true">
+      <img src="/assets/images/systems-cta.jpg" alt="" loading="lazy">
+    </div>
+    <div class="container cta__inner">
+      <h2 class="cta__title">Keep Your<br>Industry in Motion.</h2>
+      <p class="cta__lead">Tell us about your machinery and operating needs. Our experts will help you find a lubrication system that fits your application.</p>
+      <a class="btn btn--outline btn--cta" href="/contact">
+        Contact us
+        <span class="btn__arrow-diag"><img src="/assets/icons/arrow-right-up.svg" alt="" width="20" height="20"></span>
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

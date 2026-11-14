@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Industries — Nadrix Solutions" description="Lubrication systems for automotive, steel, cement, material handling, paper, mining, wind and power, and hydraulic presses, with technology partners INTZA and Woerner." current="industries">
+
+  <!-- Hero card (Figma 502:556 desktop · 514:4603 mobile) — same card as the Systems page -->
+  <section class="sys-hero" aria-labelledby="ind-title">
+    <picture class="sys-hero__media">
+      <source media="(max-width: 767px)" srcset="/assets/images/industries-hero-mobile.jpg">
+      <img class="sys-hero__img" src="/assets/images/industries-hero.jpg" alt="Lubrication pump with an amber oil reservoir mounted on industrial machinery">
+    </picture>
+    <div class="sys-hero__copy">
+      <p class="sys-hero__eyebrow">Industries</p>
+      <h1 class="sys-hero__title" id="ind-title">Lubrication systems<br class="br-desktop"> engineered to keep you moving.</h1>
+    </div>
+  </section>
+
+  <!-- Industry rows (502:379 desktop · 514:4422 mobile): photo and copy alternate sides -->
+  <div class="ind-list container">
+
+    <article class="ind-row" id="automotive" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-automotive.jpg" alt="Robotic arms and technicians on a car assembly line" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Automotive</h2>
+        <p class="ind-row__tagline">Keep every stage of production moving.</p>
+        <p class="ind-row__desc">Lubrication for assembly equipment, presses and conveyor systems helps support consistent movement across demanding production lines.</p>
+        <p class="ind-row__tags">Presses · Assembly lines · Conveyors</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://intza.com" target="_blank" rel="noopener"><span class="ind-partner__logo">INTZA</span><span class="ind-partner__visit">Visit <u>intza.com</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+          <a class="ind-partner" href="https://www.woerner.de" target="_blank" rel="noopener"><span class="ind-partner__logo">WOERNER</span><span class="ind-partner__visit">Visit <u>woerner.de</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="steel" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-steel.jpg" alt="Worker in a hard hat handling steel tubes in a metal-processing plant" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Steel / Metal Processing</h2>
+        <p class="ind-row__tagline">Built around demanding metal-forming processes.</p>
+        <p class="ind-row__desc">Controlled oil application supports stamping, pressing and forging operations, where reliable coverage matters to both the process and the finished part.</p>
+        <p class="ind-row__tags">Stamping · Forming · Forging</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://intza.com" target="_blank" rel="noopener"><span class="ind-partner__logo">INTZA</span><span class="ind-partner__visit">Visit <u>intza.com</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="cement" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-cement.jpg" alt="Aerial view of a quarry with conveyor belts, stockpiles and an excavator" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Cement</h2>
+        <p class="ind-row__tagline">Keep moving through dust, heat and heavy loads.</p>
+        <p class="ind-row__desc">Centralized lubrication delivers lubricant to critical points in demanding cement-production environments, helping reduce wear and maintenance interruptions.</p>
+        <p class="ind-row__tags">Kilns · Mills · Material handling</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://www.woerner.de" target="_blank" rel="noopener"><span class="ind-partner__logo">WOERNER</span><span class="ind-partner__visit">Visit <u>woerner.de</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="material-handling" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-material-handling.jpg" alt="Two engineers walking through a warehouse with a tablet" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Material handling</h2>
+        <p class="ind-row__tagline">Precision starts with consistent lubrication.</p>
+        <p class="ind-row__desc">Single-line and oil-air lubrication solutions for machine components, including high-speed spindle bearings.</p>
+        <p class="ind-row__tags">CNC machines · Guides · Cutting tools</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://intza.com" target="_blank" rel="noopener"><span class="ind-partner__logo">INTZA</span><span class="ind-partner__visit">Visit <u>intza.com</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+          <a class="ind-partner" href="https://www.woerner.de" target="_blank" rel="noopener"><span class="ind-partner__logo">WOERNER</span><span class="ind-partner__visit">Visit <u>woerner.de</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="paper" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-paper.jpg" alt="Large paper roll on a paper machine with steam rising" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Paper machines</h2>
+        <p class="ind-row__tagline">Support the entire production journey.</p>
+        <p class="ind-row__desc">Oil circulation and distribution systems support paper-machine sections and gearboxes, with lubrication needs extending from pulp preparation to finishing.</p>
+        <p class="ind-row__tags">Wet sections · Dryers · Gearboxes</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://www.woerner.de" target="_blank" rel="noopener"><span class="ind-partner__logo">WOERNER</span><span class="ind-partner__visit">Visit <u>woerner.de</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="mining" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-mining.jpg" alt="Excavator loading a haul truck at a mining site" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Mining</h2>
+        <p class="ind-row__tagline">Lubrication for hard-working equipment.</p>
+        <p class="ind-row__desc">Explore centralized lubrication for mining applications, with system selection guided by equipment loads, operating conditions and access for maintenance.</p>
+        <p class="ind-row__tags">Heavy equipment · Bearings · Conveyors</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://intza.com" target="_blank" rel="noopener"><span class="ind-partner__logo">INTZA</span><span class="ind-partner__visit">Visit <u>intza.com</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="wind" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-wind.jpg" alt="Wind turbines under a cloudy sky" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Wind – Power &amp; Railway</h2>
+        <p class="ind-row__tagline">Reliable movement. Sustained generation.</p>
+        <p class="ind-row__desc">Explore lubrication for energy and environmental applications, including wind turbines, where dependable operation and maintenance access are essential.</p>
+        <p class="ind-row__tags">Wind energy · Power generation · Rotating equipment</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://www.woerner.de" target="_blank" rel="noopener"><span class="ind-partner__logo">WOERNER</span><span class="ind-partner__visit">Visit <u>woerner.de</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="ind-row" id="hydraulic-presses" data-reveal>
+      <div class="ind-row__media"><img src="/assets/images/industry-hydraulic-presses.jpg" alt="Row of blue hydraulic press units on a factory floor" loading="lazy"></div>
+      <div class="ind-row__body">
+        <h2 class="ind-row__title">Hydraulic presses</h2>
+        <p class="ind-row__tagline">Different applications. The same attention to detail.</p>
+        <p class="ind-row__desc">Lubrication solutions for hydraulic presses, helping reduce friction and wear for smooth, reliable operation.</p>
+        <p class="ind-row__tags">Metal forming · Stamping · Deep drawing · Forging</p>
+        <p class="ind-row__label">Technology partner</p>
+        <div class="ind-row__partners">
+          <a class="ind-partner" href="https://intza.com" target="_blank" rel="noopener"><span class="ind-partner__logo">INTZA</span><span class="ind-partner__visit">Visit <u>intza.com</u> <img src="/assets/icons/arrow-right-up-ink.svg" alt="" width="20" height="20"></span></a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</BaseLayout>
